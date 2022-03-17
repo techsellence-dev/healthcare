@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "120433002028",
+    "project_id": "healthcare-7c5fb",
+    "storage_bucket": "healthcare-7c5fb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:120433002028:android:2d63d89671bc6d6a9df389",
+        "android_client_info": {
+          "package_name": "com.flutterflow.healthcareapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "120433002028-qj36709lknfaaml98e0pkst9np5kc24g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.flutterflow.healthcareapplication",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "120433002028-suu7ri99f5s1oqqcratsgqsh3vk4tq1b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjGmBIQbmEhtUd4-FnTbCWBg2OQ6CX_Yk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "120433002028-suu7ri99f5s1oqqcratsgqsh3vk4tq1b.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "120433002028-brd1gr2il2fiosudqa0f9kmoo4p878mo.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.flutterflow.healthcareapplication"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
