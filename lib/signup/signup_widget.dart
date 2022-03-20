@@ -3,8 +3,10 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../home_page/home_page_widget.dart';
+import '../logi/logi_widget.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -27,6 +29,21 @@ class _SignupWidgetState extends State<SignupWidget> {
   @override
   void initState() {
     super.initState();
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      final user = await signInWithGoogle(context);
+      if (user == null) {
+        return;
+      }
+      await Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(
+          builder: (context) => HomePageWidget(),
+        ),
+        (r) => false,
+      );
+    });
+
     emailFieldController = TextEditingController();
     usernameFieldController = TextEditingController();
     passwordFieldController = TextEditingController();
@@ -311,12 +328,11 @@ class _SignupWidgetState extends State<SignupWidget> {
                       return;
                     }
 
-                    await Navigator.pushAndRemoveUntil(
+                    await Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => HomePageWidget(),
+                        builder: (context) => LogiWidget(),
                       ),
-                      (r) => false,
                     );
                   },
                   text: 'Sign Up',

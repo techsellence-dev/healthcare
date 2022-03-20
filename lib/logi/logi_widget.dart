@@ -39,35 +39,15 @@ class _LogiWidgetState extends State<LogiWidget> {
         child: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).primaryColor,
           automaticallyImplyLeading: false,
-          flexibleSpace: InkWell(
-            onTap: () async {
-              final user = await signInWithEmail(
-                context,
-                emailTextController.text,
-                passwordTextController.text,
-              );
-              if (user == null) {
-                return;
-              }
-
-              await Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => HomePageWidget(),
+          flexibleSpace: Text(
+            'Login',
+            textAlign: TextAlign.center,
+            style: FlutterFlowTheme.of(context).title2.override(
+                  fontFamily: 'Poppins',
+                  color: Colors.white,
+                  fontSize: 26,
+                  lineHeight: 6,
                 ),
-                (r) => false,
-              );
-            },
-            child: Text(
-              'Login',
-              textAlign: TextAlign.center,
-              style: FlutterFlowTheme.of(context).title2.override(
-                    fontFamily: 'Poppins',
-                    color: Colors.white,
-                    fontSize: 26,
-                    lineHeight: 6,
-                  ),
-            ),
           ),
           actions: [],
           elevation: 2,
@@ -88,6 +68,19 @@ class _LogiWidgetState extends State<LogiWidget> {
                     Duration(milliseconds: 2000),
                     () => setState(() {}),
                   ),
+                  onFieldSubmitted: (_) async {
+                    final user = await signInWithGoogle(context);
+                    if (user == null) {
+                      return;
+                    }
+                    await Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HomePageWidget(),
+                      ),
+                      (r) => false,
+                    );
+                  },
                   controller: emailTextController,
                   obscureText: false,
                   decoration: InputDecoration(
